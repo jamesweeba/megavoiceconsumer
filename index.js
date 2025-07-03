@@ -2,8 +2,8 @@ const voiceQueue = require('./queue');
 const Bottleneck = require('bottleneck');
 const axios = require('axios');
 const config = require('./config');
-const accountSid = config.accountSid ;
-const authToken = config.authToken ;
+const accountSid = process.env.TWILIO_ACCOUNT_SID ;
+const authToken =  process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 
 console.log('👷 Worker started and waiting for jobs...');
