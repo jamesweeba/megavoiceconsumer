@@ -2,8 +2,8 @@ const voiceQueue = require('./queue');
 const Bottleneck = require('bottleneck');
 const axios = require('axios');
 const config = require('./config');
-const accountSid = config.accountSid || 'AC400776cfeecab728288b3a9e748ecdb1';
-const authToken = config.authToken ||'efeec1e11d574dab5e359d528b93f57a';
+const accountSid = config.accountSid ;
+const authToken = config.authToken ;
 const client = require('twilio')(accountSid, authToken);
 
 console.log('👷 Worker started and waiting for jobs...');
@@ -12,7 +12,6 @@ const limiter = new Bottleneck({
     maxConcurrent: 100,
     minTime: 1000,
 });
-//https://vbcpnjlzpfcqqfdyilzs.supabase.co/storage/v1/object/public/voice//welcome.mp3
 voiceQueue.process('process',2, async (job) => {
   console.log('📥 Received job:', job.id);
   console.log('📦 Data:', job.data);
