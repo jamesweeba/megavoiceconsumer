@@ -1,6 +1,6 @@
 let config = {
-    accountSid: process.env.TWILIO_ACCOUNT_SID || 'AC400776cfeecab728288b3a9e748ecdb1',
-    authToken: process.env.TWILIO_AUTH_TOKEN || 'efeec1e11d574dab5e359d528b93f57a',
+    accountSid: process.env.TWILIO_ACCOUNT_SID,
+    authToken: process.env.TWILIO_AUTH_TOKEN,
     twilioPhoneNumber: process.env.TWILIO_PHONE_NUMBER || '+233242426295',
     twilioApiUrl: process.env.TWILIO_API_URL || 'https://api.twilio.com',
     twilioApiVersion: process.env.TWILIO_API_VERSION || '2010-04-01',

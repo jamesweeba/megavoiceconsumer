@@ -16,14 +16,14 @@ voiceQueue.process('process',2, async (job) => {
   console.log('📥 Received job:', job.id);
   console.log('📦 Data:', job.data);
   let{phoneNumber,id,audioFileUrl}=job.data
-    const voiceUrl = `${config.voicedomainUrl}/voice?filename=${audioFileUrl}`||`https://aece-154-161-166-94.ngrok-free.app/voice?filename=${audioFileUrl}`;
+    const voiceUrl = `${config.voicedomainUrl}/voice?filename=${audioFileUrl}`;
     try {
       client.calls
   .create({
     url:  voiceUrl,
     to: `+${phoneNumber}`,
     from: '+233242426295',
-    statusCallback:`${config.voicedomainUrl}/voice/call-status?callSid=${id}` || `https://aece-154-161-166-94.ngrok-free.app/voice/call-status?callSid=${id}`,
+    statusCallback:`${config.voicedomainUrl}/voice/call-status?callSid=${id}` ,
     statusCallbackMethod: 'POST',
     tatusCallbackEvent: ['completed'],
    })
