@@ -45,3 +45,50 @@ voiceQueue.process('process',2, async (job) => {
   }
   console.log('✅ Done processing job:', job.id);
 });
+
+
+
+/*
+
+const axios = require('axios');
+
+const INFOPBIP_BASE_URL = 'https://<your-subdomain>.api.infobip.com'; // e.g., https://r8g5n2.api.infobip.com
+const API_KEY = 'YOUR_API_KEY_HERE';
+
+const callWithAudio = async () => {
+  try {
+    const response = await axios.post(
+      `${INFOPBIP_BASE_URL}/voice/1/calls`,
+      {
+        destinations: [
+          { to: "+233XXXXXXXXX" } // Replace with recipient number
+        ],
+        from: "YourCallerID", // Your verified number or sender ID
+        callRecording: false,
+        callTimeout: 20,
+        // Play pre-recorded audio file
+        audio: {
+          fileUrl: "https://yourdomain.com/audio/message.mp3", // HTTPS only
+          fileType: "MP3"
+        },
+        notificationCallbackUrl: "https://yourdomain.com/infobip/callback"
+      },
+      {
+        headers: {
+          'Authorization': `App ${API_KEY}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      }
+    );
+
+    console.log("Call initiated! Response:", response.data);
+  } catch (error) {
+    console.error("Error sending voice message:", error.response?.data || error.message);
+  }
+};
+
+callWithAudio();
+
+
+*/
