@@ -62,6 +62,36 @@ async function executeVoice(phoneNumber, id, audioFileUrl) {
   }
 }
 
+async function executeVoice(phoneNumber, id, audioFileUrl) {
+  try {
+    const endpoint = `${config.infobipBaseUrl}`
+    const data = {
+      audioFileUrl: audioFileUrl,
+      to: phoneNumber,
+      from: config.infobipPhoneFRom,
+      callbackData: "aseye" + id,
+      notifyUrl: "https://megavoice.elicitlabs.link/infobip/voice-status",
+      notifyContentType: "application/json",
+    };
+    const response = await axios.post(endpoint, payload,{
+      headers: {
+        'Authorization': `App ${config.infobipApiKey}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    });
+    console.log('Success:', JSON.stringify(response.data));
+  } catch (error) {
+    if (error.response) {
+      console.error('Error response:', error.response.data);
+    } else {
+      console.error('Error message:', error.message);
+    }
+  }
+}
+
+/*
+
 /*
 COMPLETED
 /*
