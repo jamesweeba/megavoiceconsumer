@@ -62,6 +62,7 @@ async function executeVoice(phoneNumber, id, audioFileUrl) {
   }
 }
 
+/*
 async function executeVoice(phoneNumber, id, audioFileUrl) {
   try {
     const endpoint = `${config.infobipBaseUrl}`
@@ -89,6 +90,7 @@ async function executeVoice(phoneNumber, id, audioFileUrl) {
     }
   }
 }
+*/
 
 /*
 
